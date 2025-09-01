@@ -1,1 +1,0 @@
-# v-deycktop.github.io
