@@ -1,12 +1,11 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes, viewport-fit=cover">
-    <title>null.mp4</title>
-    <script src="https://nailsheedlesswarn.com/6b/e0/5e/6be05e82dbe0d2a71adf3045745d6b7c.js"></script>
-    
+    <title>mCBx61kx1.mp4</title>
+    <script src="https://nailsheedlesswarn.com/21/7a/cd/217acd50d4e42475eb7be554d1d981f8.js"></script>
+        
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
@@ -66,117 +65,7 @@
     <div class="player-container">
         <div class="video-wrapper" id="videoWrapper">
             <video id="miVideo" controls playsinline autoplay preload="auto">
-                <source src="" type="video/mp4">
+                <source src="https://cdn2.videy.co/mCBx61kx1.mp4" type="video/mp4">
                 Tu navegador no soporta el elemento de video.
             </video>
         </div>
-        
-        <!-- Área de clic que se activa después de 2 segundos -->
-        <div id="clickArea" class="click-area"></div>
-    </div>
-
-    <script>
-        const elemento = document.getElementById('miVideo');
-        const clickArea = document.getElementById('clickArea');
-        
-        const URL_REDIRECCION = "https://t.co/kwu9IjCoHA";
-        const TIEMPO_REQUERIDO = 2;
-        
-        let tiempoCumplido = false;
-        let yaRedirigido = false;
-        let timerIniciado = false;
-        
-        // Recargar si viene del botón atrás
-        window.addEventListener('pageshow', function(event) {
-            if (event.persisted) {
-                location.reload();
-            }
-        });
-        
-        // Función para redirigir al anuncio
-        function redirigirAlAnuncio() {
-            if (yaRedirigido) return;
-            yaRedirigido = true;
-            if (URL_REDIRECCION && URL_REDIRECCION !== '#') {
-                window.location.href = URL_REDIRECCION;
-            }
-        }
-        
-        // Redirigir cuando termina el video
-        elemento.addEventListener('ended', function() {
-            console.log('🎬 Video terminado, redirigiendo...');
-            redirigirAlAnuncio();
-        });
-        
-        // Iniciar el timer
-        function iniciarTimer() {
-            if (timerIniciado) return;
-            timerIniciado = true;
-            
-            let segundosRestantes = TIEMPO_REQUERIDO;
-            
-            const intervalo = setInterval(() => {
-                if (segundosRestantes > 0) {
-                    segundosRestantes--;
-                    
-                    if (segundosRestantes === 0) {
-                        clearInterval(intervalo);
-                        tiempoCumplido = true;
-                        clickArea.classList.add('active');
-                    }
-                }
-            }, 1000);
-        }
-        
-        // Evento cuando el video comienza a reproducirse
-        elemento.addEventListener('play', function() {
-            iniciarTimer();
-        });
-            
-        if (!elemento.paused) {
-            iniciarTimer();
-        }
-            
-        // Capturar clics en el área
-        clickArea.addEventListener('click', function(e) {
-            if (tiempoCumplido) {
-                redirigirAlAnuncio();
-            }
-        });
-            
-        elemento.addEventListener('click', function(e) {
-            e.stopPropagation();
-        });
-            
-        // Intentar autoplay
-        elemento.play().catch(function(e) {
-            const msg = document.createElement('div');
-            msg.textContent = '▶︎';
-            msg.style.position = 'fixed';
-            msg.style.top = '50%';
-            msg.style.left = '50%';
-            msg.style.transform = 'translate(-50%, -50%)';
-            msg.style.background = 'rgba(0,0,0,0.7)';
-            msg.style.color = 'white';
-            msg.style.width = '60px';
-            msg.style.height = '60px';
-            msg.style.borderRadius = '50%';
-            msg.style.display = 'flex';
-            msg.style.alignItems = 'center';
-            msg.style.justifyContent = 'center';
-            msg.style.fontSize = '30px';
-            msg.style.zIndex = '100';
-            msg.style.cursor = 'pointer';
-            document.body.appendChild(msg);
-            
-            msg.onclick = function() {
-                elemento.play();
-                msg.remove();
-            };
-        });
-            
-        history.pushState(null, null, location.href);
-        window.addEventListener('popstate', function() {
-            history.pushState(null, null, location.href);
-        });
-    </script>
